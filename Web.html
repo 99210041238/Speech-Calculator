@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const Navbar = () => (
+            <nav className="bg-blue-600 p-4 text-white">
+                <div className="container mx-auto flex justify-between items-center">
+                    <div className="text-xl font-bold">NewsApp</div>
+                    <div className="space-x-4">
+                        <a href="#" className="hover:underline">Home</a>
+                        <a href="#" className="hover:underline">World</a>
+                        <a href="#" className="hover:underline">Politics</a>
+                        <a href="#" className="hover:underline">Business</a>
+                        <a href="#" className="hover:underline">Technology</a>
+                        <a href="#" className="hover:underline">Sports</a>
+                        <a href="#" className="hover:underline">Entertainment</a>
+                    </div>
+                </div>
+            </nav>
+        );
+
+        const NewsItem = ({ title, description, imageUrl }) => (
+            <div className="bg-white shadow-md rounded-lg overflow-hidden mb-4">
+                <img src={imageUrl} alt={title} className="w-full h-48 object-cover"/>
+                <div className="p-4">
+                    <h2 className="text-xl font-bold mb-2">{title}</h2>
+                    <p>{description}</p>
+                </div>
+            </div>
+        );
+
+        const App = () => {
+            const [news, setNews] = useState([
+                {
+                    title: "Breaking News 1",
+                    description: "Detailed description of breaking news 1.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+1&font=roboto"
+                },
+                {
+                    title: "Breaking News 2",
+                    description: "Detailed description of breaking news 2.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+2&font=roboto"
+                },
+                {
+                    title: "Breaking News 3",
+                    description: "Detailed description of breaking news 3.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+3&font=roboto"
+                },
+                {
+                    title: "Breaking News 4",
+                    description: "Detailed description of breaking news 4.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+4&font=roboto"
+                },
+                {
+                    title: "Breaking News 5",
+                    description: "Detailed description of breaking news 5.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+5&font=roboto"
+                },
+                {
+                    title: "Breaking News 6",
+                    description: "Detailed description of breaking news 6.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+6&font=roboto"
+                },
+                {
+                    title: "Breaking News 7",
+                    description: "Detailed description of breaking news 7.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+7&font=roboto"
+                },
+                {
+                    title: "Breaking News 8",
+                    description: "Detailed description of breaking news 8.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+8&font=roboto"
+                },
+                {
+                    title: "Breaking News 9",
+                    description: "Detailed description of breaking news 9.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+9&font=roboto"
+                },
+                {
+                    title: "Breaking News 10",
+                    description: "Detailed description of breaking news 10.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+10&font=roboto"
+                },
+                {
+                    title: "Breaking News 11",
+                    description: "Detailed description of breaking news 11.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+11&font=roboto"
+                },
+                {
+                    title: "Breaking News 12",
+                    description: "Detailed description of breaking news 12.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+12&font=roboto"
+                },
+                {
+                    title: "Breaking News 13",
+                    description: "Detailed description of breaking news 13.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+13&font=roboto"
+                },
+                {
+                    title: "Breaking News 14",
+                    description: "Detailed description of breaking news 14.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+14&font=roboto"
+                },
+                {
+                    title: "Breaking News 15",
+                    description: "Detailed description of breaking news 15.",
+                    imageUrl: "https://placehold.co/600x400?text=Breaking+News+15&font=roboto"
+                }
+            ]);
+
+            return (
+                <div>
+                    <Navbar />
+                    <div className="container mx-auto p-4">
+                        {news.map((item, index) => (
+                            <NewsItem 
+                                key={index} 
+                                title={item.title} 
+                                description={item.description} 
+                                imageUrl={item.imageUrl} 
+                            />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
